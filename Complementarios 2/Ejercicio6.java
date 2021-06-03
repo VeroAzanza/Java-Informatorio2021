@@ -9,6 +9,8 @@ public class Ejercicio6 {
         Empleado p2 = new Empleado("Matias Kisiel",36019450,130,300);
         Empleado p3 = new Empleado("Azanza Agustina",41354932,110,200);
         Empleado p4 = new Empleado("Malgieri Cristina",21351150,100,250);
+        Map<Integer, Integer> s = new HashMap<>();
+        Set<String> lista = new HashSet<>();
         p1.agregarEmpleados();
         p2.agregarEmpleados();
         p3.agregarEmpleados();
@@ -16,50 +18,57 @@ public class Ejercicio6 {
 
 
     }
+    
+    public static void agregarEmpleados(Set<String> lista, Empleado p) {
+        lista.add(p.getNombre());
+        lista.add(String.valueOf(p.getDni()));
+        lista.add(String.valueOf(p.getHoras()));
+        lista.add(String.valueOf(p.getValor()));
+    }
+    
+    public static void agregarSueldoPersona(Map<Integer, Integer> sueldoPersonas, Empleado p) {
 
-public class Persona {
+        sueldoPersonas.put(p.getDni(),p.calcularSueldo());
 
-    String nombreyApellido;
-    int dni;
-
-    public Persona(String nombreyApellido, int dni) {
-        this.nombreyApellido = nombreyApellido;
-        this.dni = dni;
-        
     }
 
-}
-public class Empleado extends Persona {
+    public static Map<Integer, Integer> mostrarSueldo(Map<Integer, Integer> sueldoPersonas) {
 
+        return sueldoPersonas;
+
+    }
+    
+public class Empleado {
+
+    private String nombreyApellido;
+    private int dni;
     private int horasTrabajadas;
     private int valorPorHora;
-    private Map<Integer, Integer> s = new HashMap<>();
-    private Set<String> lista = new HashSet<>();
 
     public Empleado(String nombreyApellido, int dni, int horasTrabajadas, int valorPorHora) {
-        super(nombreyApellido,dni);
+        this.nombreyApellido = nombreyApellido;
+        this.dni = dni;
         this.horasTrabajadas = horasTrabajadas;
         this.valorPorHora = valorPorHora;
 
     }
-
-    public void agregarEmpleados() {
-        lista.add(this.nombreyApellido);
-        lista.add(String.valueOf(this.dni));
-        lista.add(String.valueOf(this.horasTrabajadas));
-        lista.add(String.valueOf(this.valorPorHora));
+    
+    public String getNombre() {
+        return this.nombreyApellido;
+    }
+    public int getDni() {
+        return this.dni;
+    }
+    public int getHoras() {
+        return this.horasTrabajadas;
+    }
+    public int getValor() {
+        return this.valorPorHora;
     }
 
     public int calcularSueldo() {
 
         return this.horasTrabajadas * this.valorPorHora;
-    }
-
-
-    public void sueldoPersona(int dni, int sueldo) {
-
-        s.put(this.dni,sueldo);
-
     }
 }
 }
