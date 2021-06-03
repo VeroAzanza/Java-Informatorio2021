@@ -11,10 +11,18 @@ public class Ejercicio6 {
         Empleado p4 = new Empleado("Malgieri Cristina",21351150,100,250);
         Map<Integer, Integer> s = new HashMap<>();
         Set<String> lista = new HashSet<>();
+        
         p1.agregarEmpleados();
         p2.agregarEmpleados();
         p3.agregarEmpleados();
         p4.agregarEmpleados();
+        
+        agregarSueldoPersona(sueldoEmpleados,p1);
+        agregarSueldoPersona(sueldoEmpleados,p2);
+        agregarSueldoPersona(sueldoEmpleados,p3);
+        agregarSueldoPersona(sueldoEmpleados,p4);
+
+        System.out.print(mostrarSueldo(sueldoEmpleados));
 
 
     }
